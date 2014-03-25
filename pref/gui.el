@@ -4,52 +4,6 @@
 ;; ファイルを開くとき、現在のフレームで開く
 (setq ns-pop-up-frames nil)
 
-;; フォント
-(when run-darwin
-  (when (>= emacs-major-version 23)
-    (set-face-attribute 'default nil
-                        :family "monaco"
-                        :height 120)
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     'japanese-jisx0208
-     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     'japanese-jisx0212
-     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     'mule-unicode-0100-24ff
-     '("monaco" . "iso10646-1"))
-    (setq face-font-rescale-alist
-          '(("^-apple-hiragino.*" . 1.2)
-            (".*osaka-bold.*" . 1.2)
-            (".*osaka-medium.*" . 1.2)
-            (".*courier-bold-.*-mac-roman" . 1.0)
-            (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-            (".*monaco-bold-.*-mac-roman" . 0.9)
-            ("-cdac$" . 1.3)))))
-
-;; ; フォント
-;; (set-face-attribute 'default nil
-;;             :family "Osaka" ;; font
-;;             :height 120)    ;; font size
-;; (set-fontset-font
-;;  nil 'japanese-jisx0208
-;;  (font-spec :family "Hiragino Kaku Gothic Pro")) ;; font
-;; (setq face-font-rescale-alist
-;;       '((".*Hiragino_Mincho_pro.*" . 1.2)))
-
-;; ;; フォントの設定
-;; (create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
-;; (set-fontset-font "fontset-menlokakugo"
-;;                   'unicode
-;;                   (font-spec :family "Hiragino Kaku Gothic ProN" :size 12)
-;;                   nil
-;;                   'append)
-;; (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
-
 ;; 括弧の対応関係をハイライト表示
 (show-paren-mode nil)
 

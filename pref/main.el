@@ -38,10 +38,14 @@
 (ac-config-default)
 (add-to-list 'ac-modes 'html-mode)
 (add-to-list 'ac-modes 'asy-mode)
+(add-to-list 'ac-modes 'latex-mode)
 
-;; 括弧の補完
-(require 'flex-autopair)
-(flex-autopair-mode 1)
+;; 括弧の補完 smartparens-mode
+(smartparens-global-mode t)
+(require 'smartparens-config)
+(require 'smartparens-latex)
+(require 'smartparens-ruby)
+(require 'smartparens-html)
 
 ;; 最後に改行を入れる
 (setq require-final-newline t)
@@ -60,8 +64,9 @@
 ;; 無駄な行末の空白を削除する(Emacs Advent Calendar jp:2010) - tototoshiの日記
 ;; http://d.hatena.ne.jp/tototoshi/20101202/1291289625
 (add-hook 'before-save-hook
-          'delete-trailing-whitespace
-          'trim-eob)
+          '(lambda ()
+             (delete-trailing-whitespace)
+             (trim-eob)))
 
 ;; バックアップファイルの保存先変更
 ;; create backup file in ~/.emacs.d/backup
@@ -138,6 +143,29 @@
 
 ;; ispellの設定 (スペルチェッカ)
 (setq-default ispell-program-name "aspell")
+
+;; 折り返し時に、単語の切れ目を避けるようにする
+;; (global-visual-line-mode)
+(add-hook 'visual-line-mode-hook
+          (lambda ()
+            (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))))
+
+;; Lispの設定
+(setq inferior-lisp-program "sbcl")
+
+;; smart-compile
+(require 'smart-compile)
+(setq smart-compile-alist
+      (append
+       '(("\\.rb$" . "ruby %f"))
+       smart-compile-alist))
+(add-hook 'ruby-mode-hook
+      (lambda ()
+        (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
+        (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
+
+;; ;; 折り返し時に、インデントを保つ
+;; (add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)
 
 ;; ;; 全角space、tabを可視化する。
 ;; ;; Emacs で全角スペース/タブ文字を可視化 | Weboo! Returns.

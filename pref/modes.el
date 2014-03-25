@@ -57,6 +57,13 @@
    (setq indent-level 4)
    ))
 
+;; シェルスクリプトモード
+(add-hook 'sh-mode-hook
+          '(lambda ()
+             (setq sh-basic-offset 2
+                   sh-indentation 2
+                   indent-tabs-mode nil)))
+
 ;; ;; fortranモード
 ;; (add-hook 'fortran-mode-hook
 ;;           '(lambda ()
@@ -66,6 +73,13 @@
 ;;             (setq fortran-continuation-indent 4)))
 
 ;; ;; f90モード
+(add-hook 'before-save-hook
+          'delete-trailing-whitespace
+          'trim-eob)
+(add-hook 'f90-mode-hook
+          '(lambda () (add-hook 'before-save-hook
+                                'delete-trailing-whitespace
+                                'trim-eob)))
 ;; (add-hook 'f90-mode-hook
 ;;           '(lambda () (setq f90-do-indent 4
 ;;                             f90-if-indent 4
@@ -92,6 +106,28 @@
 
 ;; Textモード
 ;; 空白を削除しない
-(remove-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'text-mode-hook
+          '(lambda ()
+             (remove-hook 'before-save-hook
+                          'delete-trailing-whitespace)))
+;; (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; rubyモード
+(add-hook 'ruby-mode-hook
+          'ruby-end-mode)
+;; ruby-block (rubyで対応するendをハイライト)
+(require 'ruby-block)
+(ruby-block-mode t)
+;; ミニバッファに表示し, かつ, オーバレイする.
+(setq ruby-block-highlight-toggle t)
+
+;; haskell-mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'font-lock-mode)
+(add-hook 'haskell-mode-hook 'imenu-add-menubar-index)
+
+;; mikutterモード
+(require 'mikutter)
 
 (provide 'modes)
