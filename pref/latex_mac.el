@@ -1,5 +1,12 @@
 ;; latex-modeの設定
 
+
+;; latex-math-previewのautoload
+(autoload 'latex-math-preview-expression "latex-math-preview" nil t)
+(autoload 'latex-math-preview-insert-symbol "latex-math-preview" nil t)
+(autoload 'latex-math-preview-save-image-file "latex-math-preview" nil t)
+(autoload 'latex-math-preview-beamer-frame "latex-math-preview" nil t)
+
 ;;
 ;; AUCTeX
 ;;
@@ -13,6 +20,9 @@
 
 ;; latexmk
 (auctex-latexmk-setup)
+
+;; auto-complete
+(require 'auto-complete-auctex)
 
 ;; preview-latexで画像の場所がおかしい不具合を修正
 (setq TeX-japanese-process-input-coding-system 'utf-8
@@ -30,7 +40,9 @@
      (setq TeX-view-program-selection '((output-pdf "Preview")))
      (setq japanese-LaTeX-default-style "jsarticle")
      (dolist (command '("pTeX" "pLaTeX" "pBibTeX" "jTeX" "jLaTeX" "jBibTeX" "Mendex"))
-       (delq (assoc command TeX-command-list) TeX-command-list))))
+       (delq (assoc command TeX-command-list) TeX-command-list))
+     ;; latex-math-previewのcheat sheet
+     (define-key LaTeX-mode-map (kbd "C-c p") 'latex-math-preview-insert-symbol)))
 
 (setq japanese-LaTeX-command-default "LatexMk")
 (setq TeX-command-default "LatexMk")
