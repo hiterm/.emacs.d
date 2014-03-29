@@ -7,6 +7,7 @@
 (setq default-input-method "MacOSX")
 
 ;; フォント
+
 (if window-system
     (when run-darwin
       (when (>= emacs-major-version 23)

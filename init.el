@@ -50,9 +50,9 @@
                     (require 'gui)))
 (require 'modes)
 (require 'terminal)
-(when run-darwin
-  (require 'latex_mac))
 (when run-linux
   (require 'init-linux))
 (when run-darwin
   (require 'init-mac))
+(when run-darwin
+  (require 'latex_mac))
