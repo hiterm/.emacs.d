@@ -164,74 +164,7 @@
         (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
         (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
 
-;; ;; 折り返し時に、インデントを保つ
-;; (add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)
-
-;; ;; 全角space、tabを可視化する。
-;; ;; Emacs で全角スペース/タブ文字を可視化 | Weboo! Returns.
-;; ;; http://yamashita.dyndns.org/blog/emacs-shows-double-space-and-tab/
-;; (setq whitespace-style
-;; 	  '(tabs tab-mark spaces space-mark))
-;; (setq whitespace-space-regexp "\\(\x3000+\\)")
-;; (setq whitespace-display-mappings
-;; 	  '((space-mark ?\x3000 [?\□])
-;; 		(tab-mark	?\t	  [?\xBB ?\t])
-;; 		))
-;; (require 'whitespace)
-;; (global-whitespace-mode 1)
-;; (set-face-foreground 'whitespace-space "LightSlateGray")
-;; ;; (set-face-background 'whitespace-space "DarkSlateGray")
-;; (set-face-foreground 'whitespace-tab "LightSlateGray")
-;; ;; (set-face-background 'whitespace-tab "DarkSlateGray")
-
-;; ;; タブ, 全角スペース、改行直前の半角スペースを表示する
-;; (when (require 'jaspace nil t)
-;;   (when (boundp 'jaspace-modes)
-;;     (setq jaspace-modes (append jaspace-modes
-;;                                 (list 'php-mode
-;;                                       'yaml-mode
-;;                                       'javascript-mode
-;;                                       'ruby-mode
-;;                                       'text-mode
-;;                                       'fundamental-mode
-;;                                       'emacs-lisp-mode
-;;                                       'c-mode))))
-;;   (when (boundp 'jaspace-alternate-jaspace-string)
-;;     (setq jaspace-alternate-jaspace-string "□"))
-;;   (when (boundp 'jaspace-highlight-tabs)
-;;     (setq jaspace-highlight-tabs ?^))
-;;   (add-hook 'jaspace-mode-off-hook
-;;             (lambda()
-;;               (when (boundp 'show-trailing-whitespace)
-;;                 (setq show-trailing-whitespace nil))))
-;;   (add-hook 'jaspace-mode-hook
-;;             (lambda()
-;;               (progn
-;;                 (when (boundp 'show-trailing-whitespace)
-;;                   (setq show-trailing-whitespace t))
-;;                 (face-spec-set 'jaspace-highlight-jaspace-face
-;;                                '((((class color) (background light))
-;;                                   (:foreground "blue"))
-;;                                  (t (:foreground "green"))))
-;;                 (face-spec-set 'jaspace-highlight-tab-face
-;;                                '((((class color) (background light))
-;;                                   (:foreground "red"
-;;                                                :background "unspecified"
-;;                                                :strike-through nil
-;;                                                :underline t))
-;;                                  (t (:foreground "purple"
-;;                                                  :background "unspecified"
-;;                                                  :strike-through nil
-;;                                                  :underline t))))
-;;                 (face-spec-set 'trailing-whitespace
-;;                                '((((class color) (background light))
-;;                                   (:foreground "red"
-;;                                                :background "unspecified"
-;;                                                :strike-through nil
-;;                                                :underline t))
-;;                                  (t (:foreground "purple"
-;;                                                  :background "unspecified"
-;;                                                  :strike-through nil
-;;                                                  :underline t))))))))
+;; タブ補完で大文字小文字を区別しない
+(setq completion-ignore-case t)
 
 (provide 'main)
