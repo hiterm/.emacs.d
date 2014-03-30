@@ -167,4 +167,7 @@
 ;; タブ補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
+;; 補完をzshライクな挙動にする
+(zlc-mode t)
+
 (provide 'main)

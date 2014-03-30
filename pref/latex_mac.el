@@ -30,7 +30,10 @@
 
 (eval-after-load "tex"
   '(progn
-     (setq TeX-command-default "LatexMk")))
+     (setq TeX-command-default "LatexMk")
+     (setq TeX-view-program-list '(("Preview" "/usr/bin/open -a Preview.app %o")))
+     (setq TeX-view-program-selection '((output-pdf "Preview")))
+     (define-key LaTeX-mode-map (kbd "C-c j") 'latex-math-preview-insert-symbol)))
 
 (eval-after-load "tex-jp"
   '(progn
@@ -42,10 +45,10 @@
      (dolist (command '("pTeX" "pLaTeX" "pBibTeX" "jTeX" "jLaTeX" "jBibTeX" "Mendex"))
        (delq (assoc command TeX-command-list) TeX-command-list))
      ;; latex-math-previewのcheat sheet
-     (define-key LaTeX-mode-map (kbd "C-c p") 'latex-math-preview-insert-symbol)))
+     (define-key LaTeX-mode-map (kbd "C-c j") 'latex-math-preview-insert-symbol)))
 
-(setq japanese-LaTeX-command-default "LatexMk")
-(setq TeX-command-default "LatexMk")
+;; (setq japanese-LaTeX-command-default "LatexMk")
+;; (setq TeX-command-default "LatexMk")
 
 
 
