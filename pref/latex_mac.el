@@ -31,9 +31,8 @@
 (eval-after-load "tex"
   '(progn
      (setq TeX-command-default "LatexMk")
-     (setq TeX-view-program-list '(("Skim" "/usr/bin/open -a Skim.app %o")
-                                   ("Skim-dvi" "f=%o; open -a Skim.app \"${f%.dvi}.pdf\"")))
-     (setq TeX-view-program-selection '((output-dvi "Skim-dvi")
+     (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %s.pdf \"%b\"")))
+     (setq TeX-view-program-selection '((output-dvi "Skim")
                                         (output-pdf "Skim")))
      (define-key LaTeX-mode-map (kbd "C-c j") 'latex-math-preview-insert-symbol)))
 
@@ -41,9 +40,8 @@
   '(progn
      (setq Japanese-LaTeX-command-default "LatexMk")
      (setq TeX-command-default "LatexMk")
-     (setq TeX-view-program-list '(("Skim" "/usr/bin/open -a Skim.app %o")
-                                   ("Skim-dvi" "f=%o; open -a Skim.app \"${f%.dvi}.pdf\"")))
-     (setq TeX-view-program-selection '((output-dvi "Skim-dvi")
+     (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %s.pdf \"%b\"")))
+     (setq TeX-view-program-selection '((output-dvi "Skim")
                                         (output-pdf "Skim")))
      (setq japanese-LaTeX-default-style "jsarticle")
      (dolist (command '("pTeX" "pLaTeX" "pBibTeX" "jTeX" "jLaTeX" "jBibTeX" "Mendex"))
