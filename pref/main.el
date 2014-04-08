@@ -32,8 +32,10 @@
 (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
                         64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
+;; ;; yasnippet
+;; (yas-global-mode 1)
+
 ;; auto-complete
-;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete-1.3.1/dict")
 (require 'auto-complete-config)
 (ac-config-default)
 (add-to-list 'ac-modes 'html-mode)
@@ -164,10 +166,22 @@
         (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
         (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
 
-;; タブ補完で大文字小文字を区別しない
+;; mini bufferのタブ補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
 ;; 補完をzshライクな挙動にする
 (zlc-mode t)
+
+;; latex-modeで句読点をピリオドとカンマに変換
+(load "text-adjust")
+(setq text-adjust-rule-kutouten text-adjust-rule-kutouten-zperiod)
+;; (add-hook 'LaTeX-mode-hook
+;;           '(lambda ()
+;;              (add-hook 'before-save-hook 'text-adjust-kutouten)))
+(defun text-adjust-space-before-save-if-needed ()
+  (when (memq major-mode
+              '(latex-mode))
+    (text-adjust-kutouten-buffer)))
+(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
 
 (provide 'main)
