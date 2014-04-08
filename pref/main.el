@@ -172,16 +172,11 @@
 ;; 補完をzshライクな挙動にする
 (zlc-mode t)
 
-;; latex-modeで句読点をピリオドとカンマに変換
-(load "text-adjust")
-(setq text-adjust-rule-kutouten text-adjust-rule-kutouten-zperiod)
-;; (add-hook 'LaTeX-mode-hook
-;;           '(lambda ()
-;;              (add-hook 'before-save-hook 'text-adjust-kutouten)))
-(defun text-adjust-space-before-save-if-needed ()
-  (when (memq major-mode
-              '(latex-mode))
-    (text-adjust-kutouten-buffer)))
-(add-hook 'before-save-hook 'text-adjust-space-before-save-if-needed)
+;; punch.el
+;; latex-modeで句読点をピリオド・カンマに変換
+(require 'punch)
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (punch-mode)))
 
 (provide 'main)
