@@ -11,12 +11,6 @@
 (cask-initialize)
 (require 'pallet)
 
-;; ;; elpaのパッケージを増やす
-;; (require 'package)
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (package-initialize)
-
 ;; C-hでバックスペース
 (keyboard-translate ?\C-h ?\C-?)
 
@@ -82,6 +76,10 @@
 (setq kept-old-versions 5)   ; 古いものをいくつ残すか
 (setq delete-old-versions t) ; 確認せずに古いものを消す。
 (setq vc-make-backup-files t) ; バージョン管理下のファイルもバックアップを作る。
+
+;; recent-files
+(require 'recentf)
+(recentf-mode 1)
 
 ;; 矩形選択モード (C-Enter)
 (cua-mode t)

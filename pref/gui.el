@@ -1,12 +1,8 @@
 ;; GUIのときだけの設定
 
-;; ;; color-theme
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; ;; (color-theme-molokai)
-;; (color-theme-robin-hood)
-
+;; solarizedテーマ
 (load-theme 'solarized-dark t)
+;; (load-theme 'solarized-light t)
 
 ;; ファイルを開くとき、現在のフレームで開く
 (setq ns-pop-up-frames nil)
@@ -18,17 +14,6 @@
 (set-frame-parameter nil 'alpha '(97 70))
 
 ;; 現在行のハイライト
-(defface hlline-face
-  '((((class color)
-      (background dark))
-     (:background "gray17"))
-    (((class color)
-      (background light))
-     (:background "SeaGreen" :))
-    (t
-     ()))
-  "Used face hl-line.")
-(setq hl-line-face 'hlline-face)
 (global-hl-line-mode)
 
 ;; マウスホイールで2行ずつスクロール
