@@ -29,14 +29,6 @@
 (require 'linum)
 (global-linum-mode)
 
-;; インデントをスペースではなくタブに
-(setq-default indent-tabs-mode t)
-;; tab 幅を 4 に設定
-(setq-default tab-width 4)
-(setq default-tab-width 4)
-(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
-                        64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-
 ;; ;; yasnippet
 ;; (yas-global-mode 1)
 
