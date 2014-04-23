@@ -6,11 +6,16 @@
 ;; 極力UTF-8とする
 (prefer-coding-system 'utf-8)
 
-;; elpaのパッケージを増やす
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; cask
+(require 'cask "/usr/local/share/emacs/site-lisp/cask.el")
+(cask-initialize)
+(require 'pallet)
+
+;; ;; elpaのパッケージを増やす
+;; (require 'package)
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (package-initialize)
 
 ;; C-hでバックスペース
 (keyboard-translate ?\C-h ?\C-?)

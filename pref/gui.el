@@ -1,5 +1,12 @@
 ;; GUIのときだけの設定
 
+;; ;; color-theme
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; ;; (color-theme-molokai)
+;; (color-theme-robin-hood)
+
+(load-theme 'solarized-dark t)
 
 ;; ファイルを開くとき、現在のフレームで開く
 (setq ns-pop-up-frames nil)
@@ -39,11 +46,6 @@
 (global-set-key [wheel-down] 'scroll-up-with-lines)
 ;; スクロールを加速
 (setq mouse-wheel-progressive-speed nil)
-
-;; color-theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-molokai)
 
 ;; スクロール時のビープ音を消す
 (defun my-bell-function ()
