@@ -174,4 +174,7 @@
           '(lambda ()
              (punch-mode)))
 
+;; avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
+(setq vc-follow-symlinks t)
+
 (provide 'main)

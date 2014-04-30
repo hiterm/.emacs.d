@@ -16,21 +16,18 @@
 ;; 現在行のハイライト
 (global-hl-line-mode)
 
-;; マウスホイールで2行ずつスクロール
-(defun scroll-down-with-lines ()
-  ""
-  (interactive)
-  (scroll-down 2)
-  )
-(defun scroll-up-with-lines ()
-  ""
-  (interactive)
-  (scroll-up 2)
-  )
-(global-set-key [wheel-up] 'scroll-down-with-lines)
-(global-set-key [wheel-down] 'scroll-up-with-lines)
-;; スクロールを加速
-(setq mouse-wheel-progressive-speed nil)
+;; 慣性スクロール
+(require 'inertial-scroll)
+(setq inertias-global-minor-mode-map
+      (inertias-define-keymap
+       '(
+         ;; Mouse wheel scrolling
+         ("<wheel-up>"   . inertias-down-wheel)
+         ("<wheel-down>" . inertias-up-wheel)
+         ("<mouse-4>"    . inertias-down-wheel)
+         ("<mouse-5>"    . inertias-up-wheel)
+         ) inertias-prefix-key))
+(inertias-global-minor-mode 1)
 
 ;; スクロール時のビープ音を消す
 (defun my-bell-function ()
