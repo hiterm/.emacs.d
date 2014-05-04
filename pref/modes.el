@@ -130,4 +130,7 @@
 ;; mikutterモード
 (require 'mikutter)
 
+;; lilypondモード
+(load "lilypond-init.el")
+
 (provide 'modes)

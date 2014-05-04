@@ -13,6 +13,7 @@
 (depends-on "evernote-mode")
 (depends-on "haskell-mode")
 (depends-on "multi-term")
+(depends-on "org")
 (depends-on "pallet")
 (depends-on "popup")
 (depends-on "ruby-block")

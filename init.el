@@ -43,6 +43,8 @@
 ;; (when run-linux
 ;;   (require 'package))
 
+;; Macでは、/usr/local/share/emacs/site-lisp をload-pathに加える
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; それぞれ設定ファイルを呼び出す
 (require 'main)
