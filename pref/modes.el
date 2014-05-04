@@ -132,5 +132,14 @@
 
 ;; lilypondモード
 (load "lilypond-init.el")
+;; pdfのプレビュー
+(defun LilyPond-pdf-view ()
+  (interactive)
+  (shell-command
+   (concat "filename=" (buffer-file-name) "; open ${filename%.*}.pdf")))
+;; (define-key LilyPond-mode-map (kbd "C-c C-v") 'LilyPond-pdf-view)
+(add-hook 'LilyPond-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c C-v") 'LilyPond-pdf-view)))
 
 (provide 'modes)
