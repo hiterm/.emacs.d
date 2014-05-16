@@ -93,7 +93,6 @@
 (eval-after-load "lilypond-mode"
   '(define-key LilyPond-mode-map (kbd "C-c C-v") 'LilyPond-pdf-view))
 ;; <>をsmartparensで補完
-(eval-after-load "LilyPond-mode"
-  '(sp-pair "<" ">"))
+(sp-local-pair 'LilyPond-mode "<" ">")
 
 (provide 'modes)
