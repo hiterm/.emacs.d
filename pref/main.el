@@ -155,10 +155,8 @@
        '(("\\.rb$" . "ruby %f")
          ("\\.py$" . "python %f"))
        smart-compile-alist))
-(add-hook 'ruby-mode-hook
-      (lambda ()
-        (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
-        (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
+(eval-after-load "ruby-mode"
+  '(define-key ruby-mode-map (kbd "C-c C-c") 'smart-compile))
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-c") 'smart-compile))
 
