@@ -13,9 +13,6 @@
 
 ;; C-hでバックスペース
 (keyboard-translate ?\C-h ?\C-?)
-
-;; ;; C-hにバックスペースを割り当てる
-;; (define-key global-map (kbd "C-h") 'backward-delete-char-untabify)
 ;; 別のキーバインドにヘルプを割り当てる
 (define-key global-map (kbd "C-c DEL") 'help-command)
 
@@ -155,12 +152,15 @@
 (require 'smart-compile)
 (setq smart-compile-alist
       (append
-       '(("\\.rb$" . "ruby %f"))
+       '(("\\.rb$" . "ruby %f")
+         ("\\.py$" . "python %f"))
        smart-compile-alist))
 (add-hook 'ruby-mode-hook
       (lambda ()
         (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
         (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
+(eval-after-load "python"
+  '(define-key python-mode-map (kbd "C-c C-c") 'smart-compile))
 
 ;; mini bufferのタブ補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
