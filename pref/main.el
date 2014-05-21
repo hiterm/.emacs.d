@@ -215,5 +215,12 @@ ad-do-it))
 
 ;; iswitchb buffer切り替えを便利に
 (iswitchb-mode 1)
+;;; iswitchbで補完対象に含めないバッファ
+(setq iswitchb-buffer-ignore
+      (append
+      '("*GNU Emacs*"
+        "*Buffer List*"
+        "*Messages*")
+      iswitchb-buffer-ignore))
 
 (provide 'main)
