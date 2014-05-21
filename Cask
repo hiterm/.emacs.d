@@ -16,8 +16,6 @@
 (depends-on "org")
 (depends-on "pallet")
 (depends-on "popup")
-(depends-on "ruby-block")
-(depends-on "ruby-end")
 (depends-on "shell-pop")
 (depends-on "smart-compile")
 (depends-on "smartparens")

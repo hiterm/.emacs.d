@@ -65,15 +65,6 @@
                           'delete-trailing-whitespace)))
 ;; (remove-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; rubyモード
-(add-hook 'ruby-mode-hook
-          'ruby-end-mode)
-;; ruby-block (rubyで対応するendをハイライト)
-(require 'ruby-block)
-(ruby-block-mode t)
-;; ミニバッファに表示し, かつ, オーバレイする.
-(setq ruby-block-highlight-toggle t)
-
 ;; haskell-mode
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
