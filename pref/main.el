@@ -210,4 +210,9 @@ ad-do-it))
 ;; インデント
 (setq-default indent-tabs-mode nil)
 
+;; iswitchb buffer切り替えを便利に
+(iswitchb-mode 1)
+(global-set-key (kbd "C-x C-b") 'iswitchb-buffer)
+(global-set-key (kbd "C-x b") 'list-buffers)
+
 (provide 'main)
