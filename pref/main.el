@@ -37,6 +37,11 @@
 (require 'smartparens-latex)
 (require 'smartparens-ruby)
 (require 'smartparens-html)
+;;; 括弧の対応関係をハイライト表示
+(show-smartparens-global-mode t)
+;;; ハイライトの色
+(set-face-attribute 'sp-show-pair-match-face nil
+                    :background "darkslategray")
 
 ;; 最後に改行を入れる
 (setq require-final-newline t)

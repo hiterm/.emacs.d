@@ -7,9 +7,6 @@
 ;; ファイルを開くとき、現在のフレームで開く
 (setq ns-pop-up-frames nil)
 
-;; 括弧の対応関係をハイライト表示
-(show-smartparens-global-mode t)
-
 ;; 背景を透過させる
 (set-frame-parameter nil 'alpha '(97 70))
 
