@@ -220,7 +220,8 @@ ad-do-it))
       (append
       '("*GNU Emacs*"
         "*Buffer List*"
-        "*Messages*")
+        "*Messages*"
+        "*Completions*")
       iswitchb-buffer-ignore))
 
 (provide 'main)
