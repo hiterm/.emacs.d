@@ -75,7 +75,8 @@
 (setq delete-old-versions t) ; 確認せずに古いものを消す。
 (setq vc-make-backup-files t) ; バージョン管理下のファイルもバックアップを作る。
 
-;; recent-files
+
+;; recentf
 (require 'recentf)
 (recentf-mode 1)
 (defvar my-recentf-list-prev nil)
@@ -102,12 +103,14 @@ ad-do-it
 (eval `(format ,format-string ,@args))))
 ad-do-it))
 
-(setq recentf-save-file (expand-file-name ".recentf" user-emacs-directory))
+(custom-set-variables '(recentf-save-file "~/.emacs.d/.recentf"))
 (setq recentf-max-saved-items 2000)
 (setq recentf-exclude '(".recentf"))
 (setq recentf-auto-cleanup 10)
 (run-with-idle-timer 30 t 'recentf-save-list)
 (recentf-mode 1)
+
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
 
 ;; 矩形選択モード (C-Enter)
