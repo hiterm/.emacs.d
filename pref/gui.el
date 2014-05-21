@@ -40,37 +40,12 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
-;; タブ化
-(require 'tabbar)
-;; (tabbar-mode 1)
-
-(defun my-tabbar-buffer-list ()
-  (delq nil
-        (mapcar #'(lambda (b)
-                    (cond
-                     ;; Always include the current buffer.
-                     ((eq (current-buffer) b) b)
-                     ((buffer-file-name b) b)
-                     ((char-equal ?\  (aref (buffer-name b) 0)) nil)
-                     ((equal "*scratch*" (buffer-name b)) b) ; *scratch*バッファは表示する
-                     ((equal "*terminal*" (buffer-name b)) b)
-                     ((equal "*terminal<1>*" (buffer-name b)) b)
-                     ((equal "*terminal<2>*" (buffer-name b)) b)
-                     ((equal "*terminal<3>*" (buffer-name b)) b)
-                     ((equal "*terminal<4>*" (buffer-name b)) b)
-                     ((char-equal ?* (aref (buffer-name b) 0)) nil) ; それ以外の * で始まるバッファは表示しない
-                     ((buffer-live-p b) b)))
-                (buffer-list))))
-(setq tabbar-buffer-list-function 'my-tabbar-buffer-list)
-
-;; (require 'tabbar)
-(tabbar-mode)
+;; tabbar
+(tabbar-mode 1)
 (global-set-key "\M-]" 'tabbar-forward)  ; 次のタブ
 (global-set-key "\M-[" 'tabbar-backward) ; 前のタブ
 ;; タブ上でマウスホイールを使わない
 (tabbar-mwheel-mode nil)
-;; グループを使わない
-(setq tabbar-buffer-groups-function nil)
 ;; 左側のボタンを消す
 (dolist (btn '(tabbar-buffer-home-button
                tabbar-scroll-left-button
