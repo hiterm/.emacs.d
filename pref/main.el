@@ -245,8 +245,11 @@ ad-do-it))
 
 ;; Highlighting indentation for Emacs
 (require 'highlight-indentation)
-;; (set-face-background 'highlight-indentation-face "#00202a")
+; (set-face-background 'highlight-indentation-face "#00202a")
 (set-face-background 'highlight-indentation-face "#192b36")
 (set-face-background 'highlight-indentation-current-column-face "#002b80")
+;; 各モードで有効に
+(add-hook 'ruby-mode-hook 'highlight-indentation-mode)
+(add-hook 'ruby-mode-hook 'highlight-indentation-current-column-mode)
 
 (provide 'main)
