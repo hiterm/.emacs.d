@@ -205,13 +205,6 @@ ad-do-it))
 ;; 補完をzshライクな挙動にする
 (zlc-mode t)
 
-;; punch.el
-;; latex-modeで句読点をピリオド・カンマに変換
-(require 'punch)
-(add-hook 'LaTeX-mode-hook
-          '(lambda ()
-             (punch-mode)))
-
 ;; avoid "Symbolic link to SVN-controlled source file; follow link? (yes or no)"
 (setq vc-follow-symlinks t)
 

@@ -73,4 +73,9 @@
 ;;
 (setq kinsoku-limit 10)
 
+;; punch.el
+;; latex-modeで句読点をピリオド・カンマに変換
+(require 'punch)
+(add-hook 'LaTeX-mode-hook 'punch-mode)
+
 (provide 'latex_mac)
