@@ -243,5 +243,10 @@ ad-do-it))
       (iswitchb-make-buflist iswitchb-default)
       (setq iswitchb-rescan t))))
 
+;; Highlighting indentation for Emacs
+(require 'highlight-indentation)
+;; (set-face-background 'highlight-indentation-face "#00202a")
+(set-face-background 'highlight-indentation-face "#192b36")
+(set-face-background 'highlight-indentation-current-column-face "#002b80")
 
 (provide 'main)
