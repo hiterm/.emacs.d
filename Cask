@@ -21,5 +21,6 @@
 (depends-on "smartparens")
 (depends-on "tabbar")
 (depends-on "twittering-mode")
+(depends-on "undo-tree")
 (depends-on "yasnippet")
 (depends-on "zlc")
