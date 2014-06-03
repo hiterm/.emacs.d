@@ -75,7 +75,8 @@
 (require 'mikutter)
 
 ;; lilypondモード
-(load "lilypond-init.el")
+(when (file-exists-p "/usr/local/share/emacs/site-lisp/lilypond-init.el")
+  (load "lilypond-init.el"))
 ;; pdfのプレビュー
 (defun LilyPond-pdf-view ()
   (interactive)
