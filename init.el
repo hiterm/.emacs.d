@@ -47,14 +47,14 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; それぞれ設定ファイルを呼び出す
+(when run-linux
+  (require 'init-linux))
+(when run-darwin
+  (require 'init-mac))
 (require 'main)
 (if window-system (progn
                     (require 'gui)))
 (require 'modes)
 (require 'terminal)
-(when run-linux
-  (require 'init-linux))
-(when run-darwin
-  (require 'init-mac))
 (when run-darwin
   (require 'latex_mac))

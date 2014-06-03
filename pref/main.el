@@ -6,11 +6,6 @@
 ;; 極力UTF-8とする
 (prefer-coding-system 'utf-8)
 
-;; cask
-(require 'cask "/usr/local/share/emacs/site-lisp/cask.el")
-(cask-initialize)
-(require 'pallet)
-
 ;; C-hでバックスペース
 (keyboard-translate ?\C-h ?\C-?)
 ;; 別のキーバインドにヘルプを割り当てる

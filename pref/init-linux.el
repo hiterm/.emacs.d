@@ -1,11 +1,12 @@
-; anthy.el をロードする。
-(load-library "anthy")
-; japanese-anthy をデフォルトの input-method にする。
-(setq default-input-method "japanese-anthy")
-;; 遅いのを直す
-(if (>= emacs-major-version 22)
-    (setq anthy-accept-timeout 1))
-;; 半角全角キーで切り替え
-(global-set-key [zenkaku-hankaku] 'toggle-input-method)
+;; cask
+(require 'cask "$HOME/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+
+;; フォント
+(add-to-list 'default-frame-alist '(font . "ricty-10.5"))
+
+;; 最初の画面を消す
+(setq inhibit-startup-message t)
 
 (provide 'init-linux)
