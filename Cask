@@ -24,3 +24,6 @@
 (depends-on "undo-tree")
 (depends-on "yasnippet")
 (depends-on "zlc")
+
+(depends-on "mikutter-mode" :git "https://github.com/toshia/mikutter-mode.git")
+(depends-on "highlight-indentation" :git "https://github.com/antonj/Highlight-Indentation-for-Emacs.git")
