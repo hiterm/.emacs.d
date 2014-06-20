@@ -25,6 +25,12 @@
 (add-to-list 'ac-modes 'html-mode)
 (add-to-list 'ac-modes 'asy-mode)
 (add-to-list 'ac-modes 'latex-mode)
+;; auto-complete の候補に日本語を含む単語が含まれないようにする
+;; http://d.hatena.ne.jp/IMAKADO/20090813/1250130343
+(defadvice ac-word-candidates (after remove-word-contain-japanese activate)
+  (let ((contain-japanese (lambda (s) (string-match (rx (category japanese)) s))))
+    (setq ad-return-value
+          (remove-if contain-japanese ad-return-value))))
 
 ;; 括弧の補完 smartparens-mode
 (smartparens-global-mode t)
