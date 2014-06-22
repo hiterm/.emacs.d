@@ -6,31 +6,6 @@
 (setq multi-term-program shell-file-name)
 (setq locale-coding-system 'utf-8)
 
-
-;; PATHの設定
-;; より下に記述した物が PATH の先頭に追加されます
-(dolist (dir (list
-              "/Users/ht/Documents/bin"
-              "/Applications/Ghostscript.app"
-              "/usr/local/sbin"
-              "/usr/texbin"
-              "/opt/X11/bin"
-              "/sbin"
-              "/usr/sbin"
-              "/bin"
-              "/usr/bin"
-              "/usr/local/bin"
-              (expand-file-name "~/bin")
-              (expand-file-name "~/.emacs.d/bin")
-              ))
- ;; PATH と exec-path に同じ物を追加します
- (when (and (file-exists-p dir) (not (member dir exec-path)))
-   (setenv "PATH" (concat dir ":" (getenv "PATH")))
-   (setq exec-path (append (list dir) exec-path))))
-
-;; MANPATHの設定
-(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
-
 ;; shell の存在を確認
 (defun skt:shell ()
   (or (executable-find "bash")
