@@ -84,4 +84,8 @@
 ;; <>をsmartparensで補完
 (sp-local-pair 'LilyPond-mode "<" ">")
 
+;; java-mode
+(add-hook 'java-mode-hook 'ajc-java-complete-mode)
+(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
+
 (provide 'modes)
