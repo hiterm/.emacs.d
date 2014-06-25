@@ -27,3 +27,5 @@
 (depends-on "undo-tree")
 (depends-on "yasnippet")
 (depends-on "zlc")
+
+(depends-on "auto-java-complete" :git "https://github.com/emacs-java/auto-java-complete.git")

@@ -8,7 +8,6 @@
    (setq
     sgml-basic-offset 4
     )))
-(setq indent-tabs-mode t)
 
 ;; asymptoteモード
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
@@ -25,8 +24,6 @@
           '(lambda ()
              ;;; K&R のスタイルを使う
              (c-set-style "k&r")
-             ;;; インデントには tab を使う
-             (setq indent-tabs-mode t)
              ;;; インデント幅
              (setq c-basic-offset 4)
              ))
