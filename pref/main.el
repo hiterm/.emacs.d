@@ -193,12 +193,15 @@ ad-do-it))
 (setq smart-compile-alist
       (append
        '(("\\.rb$" . "ruby %f")
-         ("\\.py$" . "python %f"))
+         ("\\.py$" . "python %f")
+         ("\\.java$" . "javac %f && java %n"))
        smart-compile-alist))
 (eval-after-load "ruby-mode"
   '(define-key ruby-mode-map (kbd "C-c C-c") 'smart-compile))
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-c") 'smart-compile))
+(eval-after-load "cc-mode"
+  '(define-key java-mode-map (kbd "C-c C-c") 'smart-compile))
 
 ;; mini bufferのタブ補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
