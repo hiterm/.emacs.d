@@ -14,6 +14,7 @@
 (depends-on "evernote-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "haskell-mode")
+(depends-on "helm")
 (depends-on "highlight-indentation")
 (depends-on "magit")
 (depends-on "mikutter-mode")
