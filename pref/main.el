@@ -258,4 +258,10 @@ ad-do-it))
 (add-hook 'ruby-mode-hook 'highlight-indentation-mode)
 (add-hook 'ruby-mode-hook 'highlight-indentation-current-column-mode)
 
+;; mozc
+(when run-linux (progn
+                  (require 'mozc)
+                  (setq default-input-method "japanese-mozc")
+                  (setq mozc-candidate-style 'echo-area)))
+
 (provide 'main)
