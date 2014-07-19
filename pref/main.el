@@ -19,6 +19,23 @@
 ;; (yas-global-mode 1)
 
 
+;; helm
+(require 'helm-config)
+(helm-mode 1)
+(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+;; Emulate `kill-line' in helm minibuffer
+(setq helm-delete-minibuffer-contents-from-point t)
+(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+  "Emulate `kill-line' in helm minibuffer"
+  (kill-new (buffer-substring (point) (field-end))))
+;; Tabを2回押してもbufferを作成しない
+(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+  "Execute command only if CANDIDATE exists"
+  (when (file-exists-p candidate)
+    ad-do-it))
+
+
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
@@ -116,7 +133,7 @@ ad-do-it))
 (run-with-idle-timer 30 t 'recentf-save-list)
 (recentf-mode 1)
 
-(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+(global-set-key (kbd "C-x C-r") 'helm-recentf)
 
 
 ;; 矩形選択モード (C-Enter)
@@ -214,40 +231,6 @@ ad-do-it))
 
 ;; インデント
 (setq-default indent-tabs-mode nil)
-
-;; iswitchb buffer切り替えを便利に
-(iswitchb-mode 1)
-;;; iswitchbで補完対象に含めないバッファ
-(setq iswitchb-buffer-ignore
-      (append
-      '("*GNU Emacs*"
-        "*Buffer List*"
-        "*Messages*"
-        "*Completions*")
-      iswitchb-buffer-ignore))
-;;; "*が入力されている時は*で始まるものだけを出す"
-(setq iswitchb-buffer-ignore-asterisk-orig nil)
-(defadvice iswitchb-exhibit (before iswitchb-exhibit-asterisk activate)
-  (if (equal (char-after (minibuffer-prompt-end)) ?*)
-      (when (not iswitchb-buffer-ignore-asterisk-orig)
-        (setq iswitchb-buffer-ignore-asterisk-orig iswitchb-buffer-ignore)
-        (setq iswitchb-buffer-ignore '("^ "))
-        (iswitchb-make-buflist iswitchb-default)
-        (setq iswitchb-rescan t))
-    (when iswitchb-buffer-ignore-asterisk-orig
-      (setq iswitchb-buffer-ignore iswitchb-buffer-ignore-asterisk-orig)
-      (setq iswitchb-buffer-ignore-asterisk-orig nil)
-      (iswitchb-make-buflist iswitchb-default)
-      (setq iswitchb-rescan t))))
-;;; C-f, C-b, C-n, C-p で候補を切り替えることができるように。
-(add-hook 'iswitchb-define-mode-map-hook
-      (lambda ()
-        (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
-        (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
-        (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
-        (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
-
-
 
 ;; Highlighting indentation for Emacs
 (require 'highlight-indentation)

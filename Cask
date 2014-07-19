@@ -25,6 +25,7 @@
 (depends-on "shell-pop")
 (depends-on "smart-compile")
 (depends-on "smartparens")
+(depends-on "solarized-theme")
 (depends-on "tabbar")
 (depends-on "twittering-mode")
 (depends-on "undo-tree")
