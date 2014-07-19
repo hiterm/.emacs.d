@@ -59,6 +59,7 @@
 (show-smartparens-global-mode t)
 ;;; ハイライトの色
 (set-face-attribute 'sp-show-pair-match-face nil
+                    :foreground "cyan"
                     :background "darkslategray")
 
 ;; 最後に改行を入れる

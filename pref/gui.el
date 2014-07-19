@@ -2,7 +2,6 @@
 
 ;; solarizedテーマ
 (load-theme 'solarized-dark t)
-;; (load-theme 'solarized-light t)
 
 ;; ファイルを開くとき、現在のフレームで開く
 (setq ns-pop-up-frames nil)

@@ -51,9 +51,9 @@
   (require 'init-linux))
 (when run-darwin
   (require 'init-mac))
+(when window-system
+  (require 'gui))
 (require 'main)
-(if window-system (progn
-                    (require 'gui)))
 (require 'modes)
 (require 'terminal)
 (when run-darwin
