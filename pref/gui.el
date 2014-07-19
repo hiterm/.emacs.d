@@ -37,17 +37,4 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
-;; tabbar
-(tabbar-mode 1)
-(global-set-key "\M-]" 'tabbar-forward)  ; 次のタブ
-(global-set-key "\M-[" 'tabbar-backward) ; 前のタブ
-;; タブ上でマウスホイールを使わない
-(tabbar-mwheel-mode nil)
-;; 左側のボタンを消す
-(dolist (btn '(tabbar-buffer-home-button
-               tabbar-scroll-left-button
-               tabbar-scroll-right-button))
-  (set btn (cons (cons "" nil)
-                 (cons "" nil))))
-
 (provide 'gui)
