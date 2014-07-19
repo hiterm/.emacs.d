@@ -9,7 +9,6 @@
 (depends-on "auto-complete-auctex")
 (depends-on "auto-java-complete")
 (depends-on "color-theme")
-(depends-on "color-theme-solarized")
 (depends-on "dash")
 (depends-on "evernote-mode")
 (depends-on "exec-path-from-shell")
