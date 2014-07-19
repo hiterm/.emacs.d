@@ -15,9 +15,8 @@
 (require 'linum)
 (global-linum-mode)
 
-;; ;; yasnippet
-;; (yas-global-mode 1)
-
+;; yasnippet
+(yas-global-mode 1)
 
 ;; helm
 (require 'helm-config)
