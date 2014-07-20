@@ -17,6 +17,8 @@
 
 ;; yasnippet
 (yas-global-mode 1)
+(require 'dropdown-list)
+(setq yas-prompt-functions '(yas-dropdown-prompt))
 
 ;; helm
 (require 'helm-config)

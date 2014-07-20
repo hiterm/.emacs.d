@@ -10,6 +10,7 @@
 (depends-on "auto-java-complete")
 (depends-on "color-theme")
 (depends-on "dash")
+(depends-on "dropdown-list")
 (depends-on "evernote-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "haskell-mode")
