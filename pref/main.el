@@ -17,8 +17,12 @@
 
 ;; yasnippet
 (yas-global-mode 1)
+;; snippetの表示方法
 (require 'dropdown-list)
 (setq yas-prompt-functions '(yas-dropdown-prompt))
+;; snippets directory
+(setq yas-snippet-dirs (append yas-snippet-dirs
+                               '("~/.emacs.d/snippets")))
 
 ;; helm
 (require 'helm-config)

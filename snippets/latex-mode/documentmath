@@ -1,0 +1,26 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: documentmath
+# key: docm
+# --
+\documentclass{${1:jsarticle}}
+
+\title{${2:title}}
+\author{${3:author}}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathmacros}
+
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{defi}{定義}
+\newtheorem{lem}{補題}
+
+% phiの書体を変える
+\renewcommand{\phi}{\varphi}
+
+\begin{document}
+\maketitle
+$0
+\end{document}
