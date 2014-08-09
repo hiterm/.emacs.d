@@ -253,6 +253,6 @@ do nothing. And suppress the output from `message' and
 (when run-linux (progn
                   (require 'mozc)
                   (setq default-input-method "japanese-mozc")
-                  (setq mozc-candidate-style 'echo-area)))
+                  (setq mozc-candidate-style 'overlay)))
 
 (provide 'main)
