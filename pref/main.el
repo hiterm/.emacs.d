@@ -26,21 +26,29 @@
 
 ;; helm
 (require 'helm-config)
-(helm-mode 1)
-(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
-;; Emulate `kill-line' in helm minibuffer
-(setq helm-delete-minibuffer-contents-from-point t)
-(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
-  "Emulate `kill-line' in helm minibuffer"
-  (kill-new (buffer-substring (point) (field-end))))
-;; Tabを2回押してもbufferを作成しない
-(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
-  "Execute command only if CANDIDATE exists"
-  (when (file-exists-p candidate)
-    ad-do-it))
-;; key-bind
+;; key bind
+(define-key global-map (kbd "M-x")     'helm-M-x)
+(define-key global-map (kbd "C-x C-f") 'helm-find-files)
+(define-key global-map (kbd "C-x C-r") 'helm-recentf)
+(define-key global-map (kbd "M-y")     'helm-show-kill-ring)
+(define-key global-map (kbd "C-c i")   'helm-imenu)
+(define-key global-map (kbd "C-x b")   'helm-buffers-list)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;; Tabで補完
+(eval-after-load "helm-files"
+  '(progn
+     (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+     (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)))
+;; ;; Emulate `kill-line' in helm minibuffer
+;; (setq helm-delete-minibuffer-contents-from-point t)
+;; (defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+;;   "Emulate `kill-line' in helm minibuffer"
+;;   (kill-new (buffer-substring (point) (field-end))))
+;; ;; Tabを2回押してもbufferを作成しない
+;; (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+;;   "Execute command only if CANDIDATE exists"
+;;   (when (file-exists-p candidate)
+;;     ad-do-it))
 
 
 ;; auto-complete
@@ -242,8 +250,8 @@ do nothing. And suppress the output from `message' and
 
 ;; Highlighting indentation for Emacs
 (require 'highlight-indentation)
-; (set-face-background 'highlight-indentation-face "#00202a")
 (set-face-background 'highlight-indentation-face "#192b36")
+;; (set-face-background 'highlight-indentation-face "#002b80")
 (set-face-background 'highlight-indentation-current-column-face "#002b80")
 ;; 各モードで有効に
 (add-hook 'ruby-mode-hook 'highlight-indentation-mode)
