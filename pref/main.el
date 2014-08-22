@@ -38,17 +38,19 @@
 (eval-after-load "helm-files"
   '(progn
      (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-     (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)))
-;; ;; Emulate `kill-line' in helm minibuffer
-;; (setq helm-delete-minibuffer-contents-from-point t)
-;; (defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
-;;   "Emulate `kill-line' in helm minibuffer"
-;;   (kill-new (buffer-substring (point) (field-end))))
-;; ;; Tabを2回押してもbufferを作成しない
-;; (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
-;;   "Execute command only if CANDIDATE exists"
-;;   (when (file-exists-p candidate)
-;;     ad-do-it))
+     (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+     ;; Tabを2回押してもbufferを作成しない
+     (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+       "Execute command only if CANDIDATE exists"
+       (when (file-exists-p candidate)
+         ad-do-it))))
+;; Emulate `kill-line' in helm minibuffer
+(eval-after-load "helm"
+  '(progn
+(setq helm-delete-minibuffer-contents-from-point t)
+(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+  "Emulate `kill-line' in helm minibuffer"
+  (kill-new (buffer-substring (point) (field-end))))))
 
 
 ;; auto-complete
