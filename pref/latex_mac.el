@@ -78,4 +78,15 @@
 (require 'punch)
 (add-hook 'LaTeX-mode-hook 'punch-mode)
 
+;; smartparens
+(sp-with-modes '(
+                 tex-mode
+                 plain-tex-mode
+                 latex-mode
+                 )
+  (sp-local-pair "\\[" nil :actions :rem)
+  (sp-local-pair "\\[" "\\]"
+               :unless '(sp-latex-point-after-backslash)
+               :post-handlers '(sp-latex-insert-spaces-inside-pair)))
+
 (provide 'latex_mac)
