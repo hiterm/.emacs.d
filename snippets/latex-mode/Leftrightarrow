@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Leftrightarrow
+# key: <=>
+# binding: direct-keybinding
+# --
+\Leftrightarrow
