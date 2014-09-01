@@ -13,9 +13,12 @@
 \usepackage{mathmacros}
 
 \theoremstyle{definition}
-\newtheorem{thm}{定理}
-\newtheorem{defi}{定義}
-\newtheorem{lem}{補題}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{example}{例}[section]
 
 % phiの書体を変える
 \renewcommand{\phi}{\varphi}
