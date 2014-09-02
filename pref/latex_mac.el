@@ -68,6 +68,26 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
+(setq reftex-label-alist
+      '(("theorem" ?h "thm:" "\\ref{%s}" nil ())
+        ("definition" ?d "def:" "\\ref{%s}" nil ())
+        ("lemma" ?l "lem:" "\\ref{%s}" nil ())
+        ("proposition" ?p "prop:" "\\ref{%s}" nil ())
+        ("remark" ?r "rem:" "\\ref{%s}" nil ())
+        ("corollary" ?c "cor:" "\\ref{%s}" nil ())
+        ("example" ?x "ex:" "\\ref{%s}"nil ())
+        (nil ?e nil "\\eqref{%s}" nil nil)))
+
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             '("theorem" LaTeX-env-label)
+             '("definition" LaTeX-env-label)
+             '("lemma" LaTeX-env-label)
+             '("proposition" LaTeX-env-label)
+             '("remark" LaTeX-env-label)
+             '("corollary" LaTeX-env-label)
+             '("example" LaTeX-env-label)))
+
 ;;
 ;; kinsoku.el
 ;;
