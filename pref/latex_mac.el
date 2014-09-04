@@ -107,6 +107,7 @@
   (sp-local-pair "\\[" nil :actions :rem)
   (sp-local-pair "\\[" "\\]"
                :unless '(sp-latex-point-after-backslash)
-               :post-handlers '(sp-latex-insert-spaces-inside-pair)))
+               :post-handlers '(sp-latex-insert-spaces-inside-pair))
+  (sp-local-pair "|" "|"))
 
 (provide 'latex_mac)
