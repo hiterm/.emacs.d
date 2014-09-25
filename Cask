@@ -25,6 +25,7 @@
 (depends-on "smart-compile")
 (depends-on "smartparens")
 (depends-on "solarized-theme")
+(depends-on "tuareg")
 (depends-on "twittering-mode")
 (depends-on "undo-tree")
 (depends-on "yasnippet")
