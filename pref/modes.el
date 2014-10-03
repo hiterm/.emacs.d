@@ -88,4 +88,8 @@
 (add-hook 'java-mode-hook 'ajc-java-complete-mode)
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
+;; tuareg-mode ocamlのモード
+;; Indent `=' like a standard keyword.
+(setq tuareg-lazy-= t)
+
 (provide 'modes)
