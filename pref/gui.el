@@ -7,7 +7,7 @@
 (setq ns-pop-up-frames nil)
 
 ;; 背景を透過させる
-(set-frame-parameter nil 'alpha '(97 70))
+(set-frame-parameter nil 'alpha '(100 70))
 
 ;; 現在行のハイライト
 (global-hl-line-mode)
