@@ -89,7 +89,14 @@
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
 ;; tuareg-mode ocamlのモード
-;; Indent `=' like a standard keyword.
-(setq tuareg-lazy-= t)
+(eval-after-load "tuareg-mode"
+  '(progn
+     ;; Indent `=' like a standard keyword.
+     (setq tuareg-lazy-= t)
+     ;; Indent [({ like standard keywords.
+     (setq tuareg-lazy-paren t)
+     ;; No indentation after `in' keywords.
+     (setq tuareg-in-indent 0)))
+
 
 (provide 'modes)
