@@ -227,7 +227,8 @@ do nothing. And suppress the output from `message' and
 (require 'smart-compile)
 (setq smart-compile-alist
       (append
-       '(("\\.rb$" . "ruby %f")
+       '(("\\.c$" . "gcc -Wall -o %n %f && ./%n")
+         ("\\.rb$" . "ruby %f")
          ("\\.py$" . "python %f")
          ("\\.java$" . "javac %f && java %n"))
        smart-compile-alist))
@@ -236,7 +237,9 @@ do nothing. And suppress the output from `message' and
 (eval-after-load "python"
   '(define-key python-mode-map (kbd "C-c C-c") 'smart-compile))
 (eval-after-load "cc-mode"
-  '(define-key java-mode-map (kbd "C-c C-c") 'smart-compile))
+  '(progn
+     (define-key c-mode-map (kbd "C-c C-c") 'smart-compile)
+     (define-key java-mode-map (kbd "C-c C-c") 'smart-compile)))
 
 ;; mini bufferのタブ補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
