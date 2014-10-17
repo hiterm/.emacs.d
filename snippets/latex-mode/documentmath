@@ -20,8 +20,15 @@
 \newtheorem{remark}[theorem]{注意}
 \newtheorem{example}{例}[section]
 
-% phiの書体を変える
+% epsilon,phiの書体を変える
+\renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
+
+% enumerateの書式を変える
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+% 数式番号にセクションの数を付ける
+\numberwithin{equation}{section}
 
 \begin{document}
 \maketitle
