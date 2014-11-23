@@ -42,4 +42,7 @@
                 (".*monaco-bold-.*-mac-roman" . 0.9)
                 ("-cdac$" . 1.3))))))
 
+;; proofgeneral
+(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+
 (provide 'init-mac)
