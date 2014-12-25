@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: rightarrow
-# key: ->
+# name: Rightarrow
+# key: =>
 # binding: direct-keybinding
 # --
-\rightarrow
+\Rightarrow
