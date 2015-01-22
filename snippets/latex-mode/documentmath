@@ -16,6 +16,7 @@
 \newtheorem{theorem}{定理}[section]
 \newtheorem{definition}[theorem]{定義}
 \newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
 \newtheorem{proposition}[theorem]{命題}
 \newtheorem{remark}[theorem]{注意}
 \newtheorem{example}{例}[section]
