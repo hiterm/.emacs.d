@@ -14,6 +14,11 @@
 ;; ことえり
 (setq default-input-method "MacOSX")
 
+;; OptionキーをMetaに、CommandキーをSuperに
+(setq mac-command-key-is-meta nil)
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+
 ;; フォント
 (if window-system
     (when run-darwin
