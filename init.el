@@ -47,6 +47,7 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;; それぞれ設定ファイルを呼び出す
+(require 'init-el-get)
 (when run-linux
   (require 'init-linux))
 (when run-darwin
