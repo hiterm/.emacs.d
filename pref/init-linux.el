@@ -1,8 +1,3 @@
-;; cask
-(require 'cask "$HOME/.cask/cask.el")
-(cask-initialize)
-(require 'pallet)
-
 ;; フォント
 (add-to-list 'default-frame-alist '(font . "ricty-10.5"))
 
