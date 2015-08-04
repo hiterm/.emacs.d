@@ -1,6 +1,7 @@
 ;; GUIのときだけの設定
 
 ;; solarizedテーマ
+(add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/solarized-emacs")
 (load-theme 'solarized-dark t)
 
 ;; ファイルを開くとき、現在のフレームで開く

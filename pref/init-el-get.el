@@ -6,6 +6,9 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+; (el-get 'sync)
+
 ;; packages
 (el-get-bundle adaptive-wrap)
 (el-get-bundle auctex)
@@ -30,7 +33,9 @@
 (el-get-bundle scala-mode2)
 (el-get-bundle smart-compile)
 (el-get-bundle smartparens)
-(el-get-bundle solarized-theme)
+; (el-get-bundle solarized-theme)
+(el-get-bundle bbatsov/solarized-emacs)
+; (el-get-bundle color-theme-solarized)
 (el-get-bundle tuareg)
 (el-get-bundle twittering-mode)
 (el-get-bundle undo-tree)
