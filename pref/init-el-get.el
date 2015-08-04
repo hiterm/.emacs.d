@@ -35,5 +35,6 @@
 (el-get-bundle undo-tree)
 (el-get-bundle yasnippet)
 (el-get-bundle zlc)
+(el-get-bundle gist:6255793:punch)
 
 (provide 'init-el-get)
