@@ -24,6 +24,10 @@
 (setq yas-snippet-dirs (append yas-snippet-dirs
                                '("~/.emacs.d/snippets")))
 
+;; evil
+(require 'evil)
+(evil-mode 1)
+
 ;; helm
 (require 'helm-config)
 ;; key bind

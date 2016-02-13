@@ -35,5 +35,6 @@
 (el-get-bundle yasnippet)
 (el-get-bundle zlc)
 (el-get-bundle gist:6255793:punch)
+(el-get-bundle emacsmirror/evil)
 
 (provide 'init-el-get)
