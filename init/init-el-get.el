@@ -13,7 +13,6 @@
 (el-get-bundle auctex-latexmk)
 (el-get-bundle auto-complete)
 (el-get-bundle auto-complete-auctex)
-(el-get-bundle emacs-java/auto-java-complete)
 (el-get-bundle dash)
 (el-get-bundle dropdown-list)
 (el-get-bundle exec-path-from-shell)
