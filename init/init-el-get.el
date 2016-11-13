@@ -29,7 +29,6 @@
 (el-get-bundle smartparens)
 (el-get-bundle bbatsov/solarized-emacs)
 (el-get-bundle tuareg)
-(el-get-bundle twittering-mode)
 (el-get-bundle undo-tree)
 (el-get-bundle yasnippet)
 (el-get-bundle zlc)
