@@ -8,7 +8,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+; (package-initialize)
 
 (defconst my-elisp-directory "~/.emacs.d/elisp" "The directory for my elisp file.")
 (dolist (dir (let ((dir (expand-file-name my-elisp-directory)))
