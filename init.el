@@ -10,13 +10,6 @@
 ;; You may delete these explanatory comments.
 ; (package-initialize)
 
-(defconst my-elisp-directory "~/.emacs.d/elisp" "The directory for my elisp file.")
-(dolist (dir (let ((dir (expand-file-name my-elisp-directory)))
-               (list dir (format "%s%d" dir emacs-major-version))))
-  (when (and (stringp dir) (file-directory-p dir))
-    (let ((default-directory dir))
-      (add-to-list 'load-path default-directory)
-      (normal-top-level-add-subdirs-to-load-path))))
 ;; pref以下のディレクトリを再帰的に追加
 (defconst my-elisp-directory "~/.emacs.d/init" "The directory for my elisp file.")
 (dolist (dir (let ((dir (expand-file-name my-elisp-directory)))
