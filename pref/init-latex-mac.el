@@ -110,4 +110,4 @@
                :post-handlers '(sp-latex-insert-spaces-inside-pair))
   (sp-local-pair "|" "|"))
 
-(provide 'latex_mac)
+(provide 'init-latex-mac)

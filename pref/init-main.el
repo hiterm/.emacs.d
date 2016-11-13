@@ -272,4 +272,4 @@ do nothing. And suppress the output from `message' and
                   (setq default-input-method "japanese-mozc")
                   (setq mozc-candidate-style 'overlay)))
 
-(provide 'main)
+(provide 'init-main)

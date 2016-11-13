@@ -89,4 +89,4 @@
      (setq tuareg-in-indent 0)))
 
 
-(provide 'modes)
+(provide 'init-mode)

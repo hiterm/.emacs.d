@@ -21,4 +21,4 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
-(provide 'gui)
+(provide 'init-gui)

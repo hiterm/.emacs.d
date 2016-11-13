@@ -37,4 +37,4 @@
 ;; (global-set-key [f8] 'shell-pop)
 
 
-(provide 'terminal)
+(provide 'init-terminal)

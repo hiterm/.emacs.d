@@ -60,9 +60,9 @@
 (when run-darwin
   (require 'init-mac))
 (when window-system
-  (require 'gui))
-(require 'main)
-(require 'modes)
-(require 'terminal)
+  (require 'init-gui))
+(require 'init-main)
+(require 'init-mode)
+(require 'init-terminal)
 (when run-darwin
-  (require 'latex_mac))
+  (require 'init-latex-mac))
